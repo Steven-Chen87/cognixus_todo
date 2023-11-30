@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authorization Token Display</title>
+</head>
+<body>
+
+    <h1>Authorization token :</h1>
+    <p>{{ token }}</p>
+
+    <h2>cURL Commands for Todo API</h2>
+
+    <table border="1">
+        <tr>
+            <th>Operation</th>
+            <th>cURL Command</th>
+        </tr>
+        <tr>
+            <td>Get All Todo Items</td>
+            <td>
+                <code>
+                    curl -X GET http://localhost:8000/api/todo/ -H "Authorization: Token {{ token }}"
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>Create a Todo Item</td>
+            <td>
+                <code>
+                    curl -X POST http://localhost:8000/api/todo/ -H "Authorization: Token {{ token }}" -d "taskName=New Task" -d "taskDescription=&ltDescription of the task&gt"
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>Delete a Todo Item</td>
+            <td>
+                <code>
+                    curl -X DELETE http://localhost:8000/api/todo/&lttask id&gt/ -H "Authorization: Token {{ token }}"
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>Update a Todo Item Description</td>
+            <td>
+                <code>
+                    curl -X PUT http://localhost:8000/api/todo/&lttask id&gt/ -H "Authorization: Token {{ token }}" -d "taskDescription=&ltUpdated description&gt"
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>Mark Deleted API</td>
+            <td>
+                <code>
+                    curl -X PATCH http://localhost:8000/api/todo/&lttask id&gt/mark_completed/ -H "Authorization: Token {{ token }}"
+                </code>
+            </td>
+        </tr>
+    </table>
+    
+
+
+</body>
+</html>
+
